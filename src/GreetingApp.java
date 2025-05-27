@@ -6,28 +6,27 @@
     pisania kodu (unikaj powtórzeń, zachowaj poprawne naazwy zmiennych).
 
  */
-import java.util.HashMap;
-import java.util.Map;
 
 public class GreetingApp {
 
     public static void main(String[] args) {
-        String languageCode = "fr";
-        printGreeting(languageCode);
+        String language = "fr";
+
+        // TODO 1: STWÓRZ OSOBNA METODĘ I ZAMIEŃ WARUNKI NA HASHMAPE
+
+        if (language.equals("en")) {
+            System.out.println("Hello!");
+        } else if (language.equals("pl")) {
+            System.out.println("Cześć!");
+        } else if (language.equals("de")) {
+            System.out.println("Hallo!");
+        } else if (language.equals("es")) {
+            System.out.println("¡Hola!");
+        } else if (language.equals("fr")) {
+            System.out.println("Bonjour!");
+        } else {
+            System.out.println("Unknown language");
+        }
     }
 
-    /**
-     * Wypisuje powitanie na podstawie kodu języka.
-     */
-    private static void printGreeting(String languageCode) {
-        Map<String, String> greetings = new HashMap<>();
-        greetings.put("en", "Hello!");
-        greetings.put("pl", "Cześć!");
-        greetings.put("de", "Hallo!");
-        greetings.put("es", "¡Hola!");
-        greetings.put("fr", "Bonjour!");
-
-        String greeting = greetings.getOrDefault(languageCode, "Unknown language");
-        System.out.println(greeting);
-    }
 }

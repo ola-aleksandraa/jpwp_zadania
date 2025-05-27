@@ -10,50 +10,30 @@ import java.util.Scanner;
 
 public class UserRegistration {
 
-    // Stałe dla walidacji danych
-    private static final int MIN_AGE = 13;
-    private static final int MAX_AGE = 99;
-    private static final int MIN_USERNAME_LENGTH = 4;
-
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
+        // TODO: ZMIEŃ NAZWY ZMIENNYCH JEŻELI UWAŻASZ ŻE KOD JEST NIEZROZUMIAŁY DLA INNYCH
+        Scanner s = new Scanner(System.in);
         System.out.println("Podaj nazwę użytkownika:");
-        String username = scanner.nextLine();
-
+        String a = s.nextLine();
         System.out.println("Podaj wiek:");
-        int age = Integer.parseInt(scanner.nextLine());
+        int b = Integer.parseInt(s.nextLine());
 
-        if (isValidUserData(username, age)) {
-            User user = createUser(username, age);
+        // TODO: ZAMIAST "MAGICZNYCH LICZB" REPREZENTUJĄCYCH PRZEDZIAŁY WIEKOWE UŻYJ STAŁYCH
+        if (b > 12 && b < 100 && a.length() > 3) {
+            User u = new User();
+            u.n = a;
+            u.a = b;
             System.out.println("Zarejestrowano!");
         } else {
             System.out.println("Błąd danych!");
         }
+
+        // TODO: WYDZIEL OSOBNO TWORZENIE UZYTKOWNIKA ORAZ JEGO WALIDACJE (CZY MA ODPOWIEDNI WIEK)
+
     }
 
-    /**
-     * Sprawdza, czy dane użytkownika są poprawne.
-     */
-    private static boolean isValidUserData(String username, int age) {
-        return username.length() >= MIN_USERNAME_LENGTH && age >= MIN_AGE && age <= MAX_AGE;
-    }
-
-    /**
-     * Tworzy i zwraca nowego użytkownika.
-     */
-    private static User createUser(String username, int age) {
-        User user = new User();
-        user.name = username;
-        user.age = age;
-        return user;
-    }
-
-    /**
-     * Klasa reprezentująca użytkownika.
-     */
     static class User {
-        String name;
-        int age;
+        String n;
+        int a;
     }
 }

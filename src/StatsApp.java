@@ -11,57 +11,44 @@ public class StatsApp {
         int[] numbers = {3, 7, 2, 9, 4, 10, 5};
 
         // TODO 1: Ile razy poniższy kod przechodzi po tablicy i dlaczego?
-        // Odpowiedź 1: 3 razy (3 osobne pętle for)
-        System.out.println("Odpowiedź 1: Kod przechodzi po tablicy 3 razy, ponieważ są 3 oddzielne pętle.");
+        System.out.println("Odpowiedź 1: Kod przechodzi po tablicy <> razy, ponieważ <>");
 
         // TODO 2: Jakie ryzyko wiąże się z powtarzaniem tej samej pętli logicznej?
-        // Odpowiedź 2: Powtarzanie tej samej pętli zwiększa czas wykonania oraz ryzyko błędów
-        // jeśli logika w pętli wymaga zmiany, trzeba ją poprawić w wielu miejscach,
-        // co utrudnia utrzymanie kodu i zwiększa ryzyko niespójności.
-        System.out.println("Odpowiedź 2: Powtarzanie pętli zwiększa czas wykonania i ryzyko błędów przy modyfikacjach.");
+        System.out.println("Odpowiedź 2: <>");
 
         // TODO 3: Czy wersja zoptymalizowana ma mniejsze zużycie pamięci?
-        // Odpowiedź 3: Tak, bo zmniejszamy liczbę obiektów/pętli i przechowujemy wyniki w jednej strukturze.
-        System.out.println("Odpowiedź 3: Tak, optymalizacja zmniejsza zużycie pamięci i poprawia wydajność.");
+        System.out.println("Odpowiedź 3: <>");
 
-        // Użycie klasy pomocniczej do obliczenia statystyk
-        StatisticsCalculator calculator = new StatisticsCalculator();
-        StatisticsResult result = calculator.calculateStats(numbers);
+        //TODO 4: ZAMIEŃ TE 3 PETLE W JEDNĄ
+        // Klasa pomocnicza do obliczania statystyk tablicy
 
-        System.out.println("Maksymalna wartość: " + result.max);
-        System.out.println("Minimalna wartość: " + result.min);
-        System.out.println("Średnia wartość: " + result.average);
-    }
-}
-//TODO 4: ZAMIEŃ TE 3 PETLE W JEDNĄ
-// Klasa pomocnicza do obliczania statystyk tablicy
-class StatisticsCalculator {
-
-    public StatisticsResult calculateStats(int[] numbers) {
-        int min = numbers[0];
-        int max = numbers[0];
-        int sum = 0;
-
-        for (int number : numbers) {
-            if (number < min) min = number;
-            if (number > max) max = number;
-            sum += number;
+        // Znajdź maksymalną wartość (pierwsza pętla)
+        int maxValue = numbers[0];
+        for (int currentNumber : numbers) {
+            if (currentNumber > maxValue) {
+                maxValue = currentNumber;
+            }
         }
 
-        double average = (double) sum / numbers.length;
-        return new StatisticsResult(min, max, average);
-    }
-}
+        // Znajdź minimalną wartość (druga pętla)
+        int minValue = numbers[0];
+        for (int currentNumber : numbers) {
+            if (currentNumber < minValue) {
+                minValue = currentNumber;
+            }
+        }
 
-// Klasa przechowująca wynik statystyczny
-class StatisticsResult {
-    public final int min;
-    public final int max;
-    public final double average;
+        // Oblicz sumę i średnią (trzecia pętla)
+        int totalSum = 0;
+        for (int currentNumber : numbers) {
+            totalSum += currentNumber;
+        }
+        double averageValue = (double) totalSum / numbers.length;
 
-    public StatisticsResult(int min, int max, double average) {
-        this.min = min;
-        this.max = max;
-        this.average = average;
+        // TODO 5: Użycie klasy pomocniczej do obliczenia statystyk
+        System.out.println("Maksymalna wartość: " + maxValue);
+        System.out.println("Minimalna wartość: " + minValue);
+        System.out.println("Średnia wartość: " + averageValue);
     }
+
 }
