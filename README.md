@@ -1,4 +1,5 @@
-ZADANIE 1 (plik Calculator.java)
+ZADANIE 1 (plik Calculator.java)  
+
    Stórz prosty kalkulatot posiadający 4 metody (dodawania, odejmowania, mnożenia i dzielenia), nazwij je zgodnie z konwencja uzywana w
    Javie, wykorzystaj stałą 0 przy dzielniu, zadbaj o odpowiednie formatowanie kodu (wcięcia, nawiasy, odstępy).
 
